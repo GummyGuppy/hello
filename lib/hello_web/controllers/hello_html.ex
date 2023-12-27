@@ -3,6 +3,10 @@ defmodule HelloWeb.HelloHTML do
 
 @doc """
 
+***Template files are compiled into the module as function components
+ themselves, there is no runtime or performance difference between
+ the two styles. ***
+
 OPTION 1: Function component with HEEx (Embedded Elixir).
   "HTML+EEx" is a Phoenix extension of EEx that is HTML aware,
   with support for HTML validation, components,
@@ -10,15 +14,14 @@ OPTION 1: Function component with HEEx (Embedded Elixir).
   The latter protects you from security vulnerabilities like
   Cross-Site-Scripting with no extra work on your part.
 
-"""
 
-#  def index(assigns) do
-#    ~H"""
-#    Hello!
-#    """
-#  end
+  def index(assigns) do
+    ~H\"""
+    Hello!
+    \"""
+  end
 
-@doc """
+
 
 OPTION 2: Template File.
   A template file works in the same way.
@@ -37,7 +40,12 @@ OPTION 2: Template File.
 
   File name structured as: NAME.FORMAT.TEMPLATING_LANGUAGE
 
+
+
 """
+
+
+
 
 embed_templates "hello_html/*"
 
