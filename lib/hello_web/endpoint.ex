@@ -52,21 +52,24 @@ defmodule HelloWeb.Endpoint do
 
 
   @doc """
+
+  ~~ FUNCTION PLUG ~~
+
     In order to act as a plug, a function needs to:
 
     - accept a connection struct (%Plug.Conn{}) as its first argument, and connection options as its second one;
     - return a connection struct.
 
-  This function does the following:
+    This function does the following:
 
-  1. It receives a connection and options (that we do not use)
-  2. It prints some connection information to the terminal
-  3. It returns the connection
+    1. It receives a connection and options (that we do not use)
+    2. It prints some connection information to the terminal
+    3. It returns the connection
 
-  Inserted plug :introspect right before we delegate
-  the request to the router
+    Inserted plug :introspect right before we delegate
+    the request to the router
 
-  See Plug.Conn for more info https://hexdocs.pm/plug/Plug.Conn.html
+    See Plug.Conn for more info https://hexdocs.pm/plug/Plug.Conn.html
 
   """
 
