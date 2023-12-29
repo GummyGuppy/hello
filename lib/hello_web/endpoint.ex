@@ -47,5 +47,36 @@ defmodule HelloWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug :introspect
   plug HelloWeb.Router
+
+
+  @doc """
+    In order to act as a plug, a function needs to:
+
+    - accept a connection struct (%Plug.Conn{}) as its first argument, and connection options as its second one;
+    - return a connection struct.
+
+  This function does the following:
+
+  1. It receives a connection and options (that we do not use)
+  2. It prints some connection information to the terminal
+  3. It returns the connection
+
+  Inserted plug :introspect right before we delegate
+  the request to the router
+
+  See Plug.Conn for more info https://hexdocs.pm/plug/Plug.Conn.html
+
+  """
+
+  def introspect(conn, _opts) do
+    IO.puts """
+    Verb: #{inspect(conn.method)}
+    Host: #{inspect(conn.host)}
+    Headers: #{inspect(conn.req_headers)}
+    """
+
+    conn
+  end
 end
