@@ -5,3 +5,4 @@ This project follows Elixir/Phoenix's official documentation. Most of the commen
 ## Noteable articles
 
 https://blog.logrocket.com/build-rest-api-elixir-phoenix/
+https://elixir-lang.readthedocs.io/en/latest/
