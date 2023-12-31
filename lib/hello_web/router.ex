@@ -7,6 +7,10 @@ defmodule HelloWeb.Router do
 
   # Pipelines are a series of plugs that can be attached to specific scopes.
   # ex. pipeline :browser, :api
+
+  # You can create as few or as many scopes as you want.
+  # Because pipelines are reusable across scopes, they help encapsulate common functionality
+  # and you can compose them as necessary on each scope you define.
   @doc """
     The :browser pipeline has six plugs:
     The plug :accepts, ["html"] defines the accepted request format or formats.
