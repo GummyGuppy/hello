@@ -14,7 +14,17 @@ defmodule HelloWeb.HelloController do
     delete - receives an ID for an item to be deleted and deletes it from a data store
     Each of these actions takes two parameters, which will be provided by Phoenix behind the scenes.
 
+  The first parameter is always conn, a struct which holds information about the request such as the host,
+  path elements, port, query string, and much more. conn comes to Phoenix via Elixir's Plug middleware framework.
+  More detailed information about conn can be found in the Plug.Conn documentation.
+
+  The second parameter is params. Not surprisingly, this is a map which holds any parameters passed along
+  in the HTTP request. It is a good practice to pattern match against parameters in the function signature to
+  provide data in a simple package we can pass on to rendering.
+
   """
+
+
 
   def index(conn, _params) do
     render(conn, :index)
