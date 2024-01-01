@@ -24,7 +24,15 @@ defmodule HelloWeb.HelloController do
 
   """
 
+  # redirect to page within application
+  def home(conn, _params) do
+    redirect(conn, to: ~p"/redirect_test")
+  end
 
+  # redirect to external website
+  def home(conn, _params) do
+    redirect(conn, external: "https://elixir-lang.org/")
+  end
 
   def index(conn, _params) do
     render(conn, :index)
@@ -39,6 +47,21 @@ defmodule HelloWeb.HelloController do
 
   """
   def show(conn, %{"messenger" => messenger}) do
+
+    # The json/2 function is useful for writing APIs and there is also the html/2 function for rendering
+    # HTML, but most of the times we use Phoenix views to build our responses.
+
+    # For this, Phoenix includes the render/3 function. It is specially important for HTML responses,
+    # as Phoenix Views provide performance and security benefits.
+
+    # render/3
+    # provides performance/security benefits
     render(conn, :show, messenger: messenger)
+
+    # text/2
+    # text(conn, "from messenger #{messenger}")
+
+    # json/2
+    # json(conn, %{id: messenger})
   end
 end

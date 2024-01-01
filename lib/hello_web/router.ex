@@ -43,6 +43,7 @@ defmodule HelloWeb.Router do
     # get is a Phoenix macro that corresponds to the HTTP verb GET.
     # Similar macros exist for other HTTP verbs, including POST, PUT, PATCH, DELETE, OPTIONS, CONNECT, TRACE, and HEAD
     get "/", PageController, :home
+    get "/redirect_test", PageController, :redirect_test
 
 
     resources "/users", UserController do
@@ -54,16 +55,20 @@ defmodule HelloWeb.Router do
     resources "/reviews", ReviewController
   end
 
+
+
+
+
   # ~~ ADMIN SCOPE ~~
   # We define a new scope where all routes are prefixed with /admin and all controllers are
   # under the HelloWeb.Admin namespace.
-  scope "/admin", HelloWeb.Admin do
-    pipe_through :browser
+  # scope "/admin", HelloWeb.Admin do
+  #   pipe_through :browser
 
-    resources "/images",  ImageController
-    resources "/reviews", ReviewController
-    resources "/users",   UserController
-  end
+  #   resources "/images",  ImageController
+  #   resources "/reviews", ReviewController
+  #   resources "/users",   UserController
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", HelloWeb do

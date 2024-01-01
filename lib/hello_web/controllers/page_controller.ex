@@ -6,4 +6,8 @@ defmodule HelloWeb.PageController do
     # so skip the default app layout.
     render(conn, :home, layout: false)
   end
+
+  def redirect_test(conn, _params) do
+    render(conn, :home, layout: false)
+  end
 end
